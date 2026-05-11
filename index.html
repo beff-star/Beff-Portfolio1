@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beff Star — Software Engineer & Full-Stack Developer</title>
+  <meta name="description" content="Beff Star — Award-winning software engineer. Expert in full-stack development, React, Node.js, and scalable systems. View my portfolio of innovative projects." />
+  <link rel="canonical" href="https://example.com/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Beff Star — Software Engineer Portfolio" />
+  <meta property="og:description" content="Portfolio of Beff Star — software engineer specializing in web and backend development." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#06b6d4',
+            accent: '#0ea5a4',
+            dark: '#0f172a',
+            darker: '#071029',
+            card: '#0b1220',
+            muted: '#94a3b8'
+          },
+          fontFamily: {
+            'geist': ['Geist', 'system-ui'],
+            'display': ['Geist Mono', 'monospace']
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+            'scroll': 'scroll 40s linear infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' }
+            },
+            'pulse-glow': {
+              '0%, 100%': { opacity: '0.6' },
+              '50%': { opacity: '1' }
+            },
+            scroll: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-100%)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Structured data (schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Beff Star",
+    "url": "https://example.com/",
+    "sameAs": [],
+    "jobTitle": "Software Engineer",
+    "description": "Full-stack software engineer specializing in web applications and backend services.",
+    "knowsAbout": ["JavaScript","HTML","CSS","Node.js","React","APIs"]
+  }
+  </script>
+
+  <style>
+    * { scroll-behavior: smooth; }
+    body { font-family: 'Geist', system-ui; background: linear-gradient(180deg, #071029 0%, #081226 100%); }
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: static; width: auto; height: auto; margin: 1rem; padding: .5rem; background: #fff; color: #000; }
+    .gradient-text { background: linear-gradient(135deg, #06b6d4, #0ea5a4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .marquee { overflow: hidden; }
+    .marquee-content { display: flex; animation: scroll 40s linear infinite; gap: 2rem; }
+    .marquee:hover .marquee-content { animation-play-state: paused; }
+    .float-img { animation: float 6s ease-in-out infinite; }
+    .blur-transition { transition: filter 0.3s ease; }
+  </style>
+
+</head>
+<body class="bg-darker text-gray-100 font-geist">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 glass" role="banner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a class="text-xl font-bold gradient-text" href="#home" data-route="home">Beff Star</a>
+      <nav aria-label="Primary" class="hidden md:flex gap-6">
+        <a href="#home" data-route="home" class="hover:text-primary transition">Home</a>
+        <a href="#about" data-route="about" class="hover:text-primary transition">About</a>
+        <a href="#skills" data-route="skills" class="hover:text-primary transition">Skills</a>
+        <a href="#projects" data-route="projects" class="hover:text-primary transition">Projects</a>
+        <a href="#testimonials" data-route="testimonials" class="hover:text-primary transition">Testimonials</a>
+        <a href="#contact" data-route="contact" class="hover:text-primary transition">Contact</a>
+      </nav>
+      <div class="flex gap-4">
+        <button id="downloadResume" class="hidden md:inline px-4 py-2 bg-primary text-dark font-semibold rounded-lg hover:bg-accent transition">Resume</button>
+        <button class="nav-toggle md:hidden" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <!-- Hero Section -->
+    <section id="home" class="section-hero min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-20">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-20 left-20 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-20 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
+      </div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text animate-fade-in">Hi, I'm Beff Star</h1>
+        <p class="text-xl md:text-2xl text-muted mb-8 max-w-3xl mx-auto leading-relaxed">Full-stack engineer crafting beautiful, performant web experiences. Specialized in React, Node.js, and scalable systems.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#projects" data-route="projects" class="px-8 py-3 bg-primary text-dark font-semibold rounded-lg hover:bg-accent transition">View My Work</a>
+          <a href="#contact" data-route="contact" class="px-8 py-3 glass font-semibold rounded-lg hover:bg-white hover:bg-opacity-10 transition">Get in Touch</a>
+        </div>
+        <div class="mt-16 grid grid-cols-3 gap-8 md:gap-16 text-center">
+          <div class="stat-card">
+            <div class="text-3xl md:text-4xl font-bold gradient-text">50+</div>
+            <p class="text-muted">Projects</p>
+          </div>
+          <div class="stat-card">
+            <div class="text-3xl md:text-4xl font-bold gradient-text">8+</div>
+            <p class="text-muted">Years Exp</p>
+          </div>
+          <div class="stat-card">
+            <div class="text-3xl md:text-4xl font-bold gradient-text">100%</div>
+            <p class="text-muted">Satisfied</p>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 gradient-text">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <p class="text-lg text-muted mb-6">I'm a passionate software engineer with a love for creating elegant solutions to complex problems. My journey in tech has taken me through startups, agencies, and tech companies where I've built everything from MVPs to enterprise-scale applications.</p>
+            <p class="text-lg text-muted mb-6">When I'm not coding, I'm contributing to open-source projects, mentoring junior developers, and exploring new technologies that shape the future of the web.</p>
+            <div class="space-y-4">
+              <p class="flex items-center gap-3"><span class="text-primary">✓</span> Full-Stack Development</p>
+              <p class="flex items-center gap-3"><span class="text-primary">✓</span> System Design & Architecture</p>
+              <p class="flex items-center gap-3"><span class="text-primary">✓</span> Performance Optimization</p>
+              <p class="flex items-center gap-3"><span class="text-primary">✓</span> Team Leadership</p>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="glass rounded-lg p-8 h-96 flex items-center justify-center">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop" alt="Beff Star" class="w-full h-full object-cover rounded-lg float-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section with Marquee -->
+    <section id="skills" class="py-20 px-4 bg-black bg-opacity-30">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 gradient-text">Technical Skills</h2>
+        <div class="marquee">
+          <div class="marquee-content">
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">⚛️</span> React</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">🟢</span> Node.js</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">📘</span> TypeScript</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">🗄️</span> PostgreSQL</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">⚡</span> Next.js</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">🎨</span> Tailwind CSS</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">🧪</span> Jest & Testing</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">🐳</span> Docker</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">☁️</span> AWS</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">📊</span> GraphQL</div>
+          </div>
+          <div class="marquee-content">
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">⚛️</span> React</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">🟢</span> Node.js</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">📘</span> TypeScript</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">🗄️</span> PostgreSQL</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">⚡</span> Next.js</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">🎨</span> Tailwind CSS</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">🧪</span> Jest & Testing</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">🐳</span> Docker</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">☁️</span> AWS</div>
+            <div class="flex items-center gap-3 px-6 py-3 glass rounded-lg whitespace-nowrap"><span class="text-2xl">📊</span> GraphQL</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 gradient-text">Featured Projects</h2>
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- Project 1 -->
+          <div class="glass rounded-lg overflow-hidden group cursor-pointer hover:border-primary transition">
+            <div class="relative h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=600&h=400&fit=crop" alt="Project A" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">E-Commerce Platform</h3>
+              <p class="text-muted mb-4">A full-stack e-commerce solution with real-time inventory, payment processing, and analytics dashboard.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">React</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">Node.js</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">Stripe</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="#" class="px-4 py-2 bg-primary text-dark rounded-lg hover:bg-accent transition">Live</a>
+                <a href="#" class="px-4 py-2 glass rounded-lg hover:bg-white hover:bg-opacity-10 transition">Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="glass rounded-lg overflow-hidden group cursor-pointer hover:border-primary transition">
+            <div class="relative h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Project B" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">SaaS Analytics Dashboard</h3>
+              <p class="text-muted mb-4">Real-time analytics platform for tracking user behavior and business metrics with custom integrations.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">Next.js</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">PostgreSQL</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">GraphQL</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="#" class="px-4 py-2 bg-primary text-dark rounded-lg hover:bg-accent transition">Live</a>
+                <a href="#" class="px-4 py-2 glass rounded-lg hover:bg-white hover:bg-opacity-10 transition">Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="glass rounded-lg overflow-hidden group cursor-pointer hover:border-primary transition">
+            <div class="relative h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="Project C" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">AI-Powered Content Generator</h3>
+              <p class="text-muted mb-4">Intelligent tool powered by GPT-4 API for generating high-quality content tailored to user preferences.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">React</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">OpenAI API</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">Express</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="#" class="px-4 py-2 bg-primary text-dark rounded-lg hover:bg-accent transition">Live</a>
+                <a href="#" class="px-4 py-2 glass rounded-lg hover:bg-white hover:bg-opacity-10 transition">Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="glass rounded-lg overflow-hidden group cursor-pointer hover:border-primary transition">
+            <div class="relative h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Project D" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Collaborative Design Tool</h3>
+              <p class="text-muted mb-4">Real-time collaborative platform for teams to design and prototype web interfaces together.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">WebSocket</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">Canvas API</span>
+                <span class="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm">Turborepo</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="#" class="px-4 py-2 bg-primary text-dark rounded-lg hover:bg-accent transition">Live</a>
+                <a href="#" class="px-4 py-2 glass rounded-lg hover:bg-white hover:bg-opacity-10 transition">Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="#contact" data-route="contact" class="px-8 py-3 bg-primary text-dark font-semibold rounded-lg hover:bg-accent transition inline-block">Let's Work Together</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-4 bg-black bg-opacity-30">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 gradient-text">What People Say</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="glass rounded-lg p-6">
+            <div class="flex gap-1 mb-4">
+              <span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span>
+            </div>
+            <p class="text-muted mb-4">"Beff delivered exceptional work on our e-commerce platform. His attention to detail and problem-solving skills are outstanding."</p>
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop" alt="Alex Johnson" class="w-10 h-10 rounded-full" />
+              <div>
+                <p class="font-semibold">Alex Johnson</p>
+                <p class="text-sm text-muted">CTO at TechCorp</p>
+              </div>
+            </div>
+          </div>
+          <div class="glass rounded-lg p-6">
+            <div class="flex gap-1 mb-4">
+              <span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span>
+            </div>
+            <p class="text-muted mb-4">"Working with Beff was a game-changer. He transformed our legacy codebase into a modern, scalable system in record time."</p>
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop" alt="Sarah Lee" class="w-10 h-10 rounded-full" />
+              <div>
+                <p class="font-semibold">Sarah Lee</p>
+                <p class="text-sm text-muted">Founder at StartupX</p>
+              </div>
+            </div>
+          </div>
+          <div class="glass rounded-lg p-6">
+            <div class="flex gap-1 mb-4">
+              <span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span>
+            </div>
+            <p class="text-muted mb-4">"Beff's expertise in system design and his collaborative approach made our project a massive success. Highly recommended!"</p>
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=40&h=40&fit=crop" alt="Mike Chen" class="w-10 h-10 rounded-full" />
+              <div>
+                <p class="font-semibold">Mike Chen</p>
+                <p class="text-sm text-muted">Product Lead at InnovateCo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog / Latest Work Section -->
+    <section id="blog" class="py-20 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 gradient-text">Latest Articles</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <a href="#" class="glass rounded-lg p-6 hover:border-primary transition group">
+            <div class="text-sm text-primary mb-2">May 11, 2026</div>
+            <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition">Building Scalable React Applications</h3>
+            <p class="text-muted mb-4">Explore best practices for scaling React applications with proper state management and performance optimization.</p>
+            <span class="text-primary text-sm">Read Article →</span>
+          </a>
+          <a href="#" class="glass rounded-lg p-6 hover:border-primary transition group">
+            <div class="text-sm text-primary mb-2">May 8, 2026</div>
+            <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition">The Future of Full-Stack Development</h3>
+            <p class="text-muted mb-4">My thoughts on emerging technologies and how they'll shape the way we build web applications.</p>
+            <span class="text-primary text-sm">Read Article →</span>
+          </a>
+          <a href="#" class="glass rounded-lg p-6 hover:border-primary transition group">
+            <div class="text-sm text-primary mb-2">May 1, 2026</div>
+            <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition">Mastering TypeScript for Large Projects</h3>
+            <p class="text-muted mb-4">A comprehensive guide to using TypeScript effectively in large-scale applications.</p>
+            <span class="text-primary text-sm">Read Article →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 gradient-text text-center">Let's Connect</h2>
+        <form id="contactForm" class="space-y-6" novalidate>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-semibold mb-2">Your Name</label>
+              <input id="name" name="name" type="text" required class="w-full px-4 py-3 bg-card rounded-lg border border-white border-opacity-10 focus:border-primary focus:outline-none transition" placeholder="John Doe" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-semibold mb-2">Your Email</label>
+              <input id="email" name="email" type="email" required class="w-full px-4 py-3 bg-card rounded-lg border border-white border-opacity-10 focus:border-primary focus:outline-none transition" placeholder="john@example.com" />
+            </div>
+          </div>
+          <div>
+            <label for="subject" class="block text-sm font-semibold mb-2">Subject</label>
+            <input id="subject" name="subject" type="text" required class="w-full px-4 py-3 bg-card rounded-lg border border-white border-opacity-10 focus:border-primary focus:outline-none transition" placeholder="Project inquiry" />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-semibold mb-2">Message</label>
+            <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 bg-card rounded-lg border border-white border-opacity-10 focus:border-primary focus:outline-none transition" placeholder="Tell me about your project..."></textarea>
+          </div>
+          <div class="flex gap-3">
+            <button type="submit" class="px-8 py-3 bg-primary text-dark font-semibold rounded-lg hover:bg-accent transition">Send Message</button>
+            <button type="button" id="resetForm" class="px-8 py-3 glass rounded-lg hover:bg-white hover:bg-opacity-10 transition">Clear</button>
+          </div>
+          <div id="formStatus" class="text-primary text-sm" role="status" aria-live="polite"></div>
+        </form>
+        <div class="mt-12 pt-12 border-t border-white border-opacity-10 grid grid-cols-3 gap-6 text-center">
+          <a href="https://twitter.com" target="_blank" class="hover:text-primary transition">Twitter</a>
+          <a href="https://github.com" target="_blank" class="hover:text-primary transition">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" class="hover:text-primary transition">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white border-opacity-10 py-8 px-4">
+    <div class="max-w-7xl mx-auto text-center text-muted">
+      <p>&copy; <span id="year"></span> Beff Star. All rights reserved. Built with React, Next.js, and Tailwind CSS.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
